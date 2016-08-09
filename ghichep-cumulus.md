@@ -1,8 +1,8 @@
 # Ghi chép về Cumulus
 
 ## Cài đặt
-
 - Tạo các Vmnet trong VMware Workstation từ VMnet1 đến VMnet12. Để chế độ ko cấp DHCP: Xem hình http://prntscr.com/c3gdo7
+- Đăng ký tài khoản và download CumulusLinux VX (bản free) từ https://cumulusnetworks.com/cumulus-vx/ dành cho VMware (VMware Workstation, ESXi)
 - Import các máy ảo down từ trang chủ của Cumulus dành cho VMware Workstation
 
 ### Máy 01 - leaf01
@@ -13,6 +13,7 @@
  - NIC02: VMnet2
  - NIC03: VMnet3
  - NIC04: VMnet9
+- RAM, CPU, DISK để mặc định
 
 
 
@@ -24,6 +25,7 @@
  - NIC02: VMnet4
  - NIC03: VMnet5
  - NIC04: VMnet10
+- RAM, CPU, DISK để mặc định
 
 
 
@@ -31,19 +33,21 @@
 
 - Cấu hình như sau: http://prntscr.com/c3gg2p
 - Thiết lập network
- - NIC01: NAT
- - NIC02: VMnet2
- - NIC03: VMnet4
- - NIC04: VMnet11
+    - NIC01: NAT
+    - NIC02: VMnet2
+    - NIC03: VMnet4
+    - NIC04: VMnet11
+- RAM, CPU, DISK để mặc định
 
 ### Máy 04 - spine02
 
 - Cấu hình như sau: http://prntscr.com/c3gg8k
-- NIC01: NAT
-- NIC02: VMnet3
-- NIC03: VMnet5
-- NIC04: VMnet12
-
+- Thiết lập network
+    - NIC01: NAT
+    - NIC02: VMnet3
+    - NIC03: VMnet5
+    - NIC04: VMnet12
+- RAM, CPU, DISK để mặc định
  
 - Đăng nhập sau khi import file vào VMware
 
