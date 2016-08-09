@@ -2,10 +2,49 @@
 
 ## Cài đặt
 
-- Cài thông qua VMware
- - Import lần lượt 4 máy từ file template down từ trang chủ.
- - Setup 04 NIC cho máy ảo đã Import, trong đó 01 interface là NAT, 03 interface còn lại sử dụng chế độ hostonly
+- Tạo các Vmnet trong VMware Workstation từ VMnet1 đến VMnet12. Để chế độ ko cấp DHCP: Xem hình http://prntscr.com/c3gdo7
+- Import các máy ảo down từ trang chủ của Cumulus dành cho VMware Workstation
 
+### Máy 01 - leaf01
+
+- Cấu hình như sau: http://prntscr.com/c3gfpl
+- Thiết lập network
+ - NIC01: NAT
+ - NIC02: VMnet2
+ - NIC03: VMnet3
+ - NIC04: VMnet9
+
+
+
+### Máy 02 - leaf02
+
+- Cấu hình như sau: http://prntscr.com/c3gfxe
+- Thiết lập network
+ - NIC01: NAT
+ - NIC02: VMnet4
+ - NIC03: VMnet5
+ - NIC04: VMnet10
+
+
+
+### Máy 03 - spine01
+
+- Cấu hình như sau: http://prntscr.com/c3gg2p
+- Thiết lập network
+ - NIC01: NAT
+ - NIC02: VMnet2
+ - NIC03: VMnet4
+ - NIC04: VMnet11
+
+### Máy 04 - spine02
+
+- Cấu hình như sau: http://prntscr.com/c3gg8k
+- NIC01: NAT
+- NIC02: VMnet3
+- NIC03: VMnet5
+- NIC04: VMnet12
+
+ 
 - Đăng nhập sau khi import file vào VMware
 
     ```sh
@@ -101,25 +140,25 @@
 
     # The loopback network interface
     auto lo
-        iface lo inet loopback
-        address 10.2.1.2/32
+      iface lo inet loopback
+      address 10.2.1.2/32
 
     # The primary network interface
     auto eth0
-        iface eth0 inet dhcp
+      iface eth0 inet dhcp
 
     auto swp1
-        iface swp1
-        address 10.2.1.2/32
+      iface swp1
+      address 10.2.1.2/32
 
     auto swp2
-        iface swp2
-        address 10.2.1.2/32
+      iface swp2
+      address 10.2.1.2/32
 
     auto swp3
-        iface swp3
-        address 10.4.2.1/24
-    
+      iface swp3
+      address 10.4.2.1/24
+
     EOF
     ```
     
@@ -311,4 +350,20 @@
     ```
    
    
-### Kiểm 
+### Kiểm tra 
+
+- Đứng trên máy leaf01 ping lần lượt tới các máy sau
+
+    ```sh
+    # Ping tới leaf02
+    ping 10.2.1.2
+
+    # Ping tới Spine01
+    ping 10.2.1.3
+
+    # Ping tới Spine02
+    ping 10.2.1.4
+    ```
+
+
+- 
