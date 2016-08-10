@@ -202,7 +202,7 @@
     systemctl restart networking
     ```
     
- - Khởi động lại Quagga
+- Khởi động lại Quagga
  
     ```sh
     systemctl restart quagga.service
