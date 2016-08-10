@@ -354,7 +354,7 @@
     ```
    
    
-### Kiểm tra 
+### Kiểm tra trên các switch
 
 - Đứng trên máy leaf01 ping lần lượt tới các máy sau
 
@@ -369,6 +369,24 @@
     ping 10.2.1.4
     ```
 
+### Thiết lập các máy client gắn vào leaf01 và leaf02
+
+- Tham khảo: http://prnt.sc/c3ufn7
+
+- VM1
+ - Gắn VM1 vào swp3 của leaf01.
+ - IP address: 10.4.1.10/24
+ - Gateway: 10.4.1.1
+ 
+ 
+- VM2
+ - Gắn VM2 vào swp3 của leaf02.
+ - IP address: 10.4.2.10/24
+ - Gateway: 10.4.2.1
+ 
+- Đứng từ VM1 ping đến VM2.
+ - Kết quả: http://prnt.sc/c3ufbu
+    
 ### Cách cấu hình LAB bằng script
 
 - Trên leaf01
