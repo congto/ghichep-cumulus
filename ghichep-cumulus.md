@@ -369,5 +369,28 @@
     ping 10.2.1.4
     ```
 
+### Cách cấu hình LAB bằng script
 
-- 
+- Trên leaf01
+
+    ```sh
+    curl -sL https://raw.githubusercontent.com/congto/ghichep-cumulus/master/scripts/leaf01.sh  | sudo bash
+    ```
+
+- Trên leaf02
+
+    ```sh
+    curl -sL  https://raw.githubusercontent.com/congto/ghichep-cumulus/master/scripts/leaf02.sh | sudo bash
+    ```
+
+- Trên spine01
+
+    ```sh
+    curl -sL https://raw.githubusercontent.com/congto/ghichep-cumulus/master/scripts/spine01.sh | sudo bash
+    ```
+    
+- Trên spine02
+
+    ```sh
+    curl -sL https://raw.githubusercontent.com/congto/ghichep-cumulus/master/scripts/spine02.sh | sudo bash
+    ```

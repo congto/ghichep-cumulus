@@ -59,3 +59,5 @@ systemctl restart networking
 # Restart Quagga
 systemctl restart quagga.service
 
+echo "DONE !"
+
